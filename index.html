@@ -2,177 +2,999 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clean Car Móvil</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Clean Car Móvil | Detallado Automotriz</title>
+
+    <!-- Iconos de Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
     <style>
-        *{
+        /* =========================================================
+           CONFIGURACIÓN GENERAL
+        ========================================================= */
+
+        * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: linear-gradient(to bottom, #e9eef5, #ffffff);
-            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #07111f;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
-        header {
-            background: linear-gradient(135deg, #1e3a5f, #0b1f33);
-            color: white;
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .titulo-seccion {
             text-align: center;
-            padding: 35px 20px;
+            margin-bottom: 45px;
         }
 
-        header h1{
-            margin: 0;
-            font-size: 42px;
-            text-shadow: 2px 2px 5px black;
-        }
-
-        header p{
-            letter-spacing: 1px;
+        .titulo-seccion span {
+            color: #1688ff;
+            font-size: 14px;
             font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
+
+        .titulo-seccion h2 {
+            font-size: 38px;
+            margin-top: 8px;
+        }
+
+        .titulo-seccion p {
+            max-width: 750px;
+            margin: 15px auto 0;
+            color: #b7c4d5;
+            text-align: center;
+        }
+
+        /* =========================================================
+           NAVEGACIÓN
+        ========================================================= */
 
         nav {
-            background-color: #294b73;
-            text-align: center;
-            padding: 12px;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(4, 13, 25, 0.94);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 18px;
-            font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 5px;
-        }
-
-        nav a:hover{
-            background-color: white;
-            color: #1e3a5f;
-        }
-
-        section {
-            background-color: white;
-            margin: 25px auto;
-            padding: 25px;
-            border-radius: 12px;
+        .nav-contenido {
             width: 90%;
-            max-width: 1100px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        h2 {
-            color: #1e3a5f;
-            border-left: 6px solid #294b73;
-            padding-left: 10px;
-        }
-
-        p{
-            line-height: 1.6;
-            text-align: justify;
-        }
-
-        .galeria{
+            max-width: 1200px;
+            margin: auto;
+            min-height: 76px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .galeria img {
-            width: 240px;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-
-        .galeria img:hover{
-            transform: scale(1.07);
-        }
-
-        .servicios{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            padding: 0;
-            list-style: none;
-        }
-
-        .servicios li{
-            background-color: #eef3f8;
-            padding: 15px;
-            border-left: 5px solid #1e3a5f;
-            border-radius: 8px;
+        .logo {
+            color: white;
+            font-size: 25px;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .servicios li:hover{
-            background-color: #1e3a5f;
-            color: white;
+        .logo span {
+            color: #1688ff;
         }
 
-        .boton {
-            display: inline-block;
-            background-color: #1e3a5f;
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+        }
+
+        .menu a {
             color: white;
-            padding: 12px 18px;
-            text-decoration: none;
-            border-radius: 8px;
+            padding: 10px 13px;
+            border-radius: 6px;
+            font-size: 15px;
             font-weight: bold;
             transition: 0.3s;
         }
 
-        .boton:hover{
-            background-color: #0b1f33;
-            transform: scale(1.05);
+        .menu a:hover {
+            background-color: #1688ff;
         }
 
-        button{
-            margin-top: 15px;
-            padding: 10px 15px;
-            background-color: #294b73;
-            color: white;
+        .boton-menu {
+            display: none;
+            background: none;
             border: none;
-            border-radius: 7px;
+            color: white;
+            font-size: 26px;
             cursor: pointer;
+        }
+
+        /* =========================================================
+           PORTADA
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(2, 8, 18, 0.63),
+                    rgba(2, 8, 18, 0.9)
+                ),
+                url("imagenes/10.jpeg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 120px 20px 70px;
+            text-align: center;
+        }
+
+        .hero-contenido {
+            max-width: 950px;
+        }
+
+        .hero-etiqueta {
+            display: inline-block;
+            color: #69b4ff;
+            border: 1px solid rgba(105, 180, 255, 0.45);
+            background-color: rgba(22, 136, 255, 0.12);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero h1 span {
+            color: #1688ff;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: 25px auto;
+            color: #d4deea;
+            font-size: 21px;
+            text-align: center;
+        }
+
+        .botones-hero {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .boton {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 14px 24px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton-principal {
+            background: linear-gradient(135deg, #1688ff, #0557bd);
+            color: white;
+            box-shadow: 0 8px 25px rgba(22, 136, 255, 0.35);
+        }
+
+        .boton-principal:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(22, 136, 255, 0.5);
+        }
+
+        .boton-secundario {
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .boton-secundario:hover {
+            background-color: white;
+            color: #07111f;
+            transform: translateY(-4px);
+        }
+
+        /* =========================================================
+           ESTADÍSTICAS
+        ========================================================= */
+
+        .estadisticas {
+            background: linear-gradient(135deg, #0a213d, #07111f);
+            padding: 45px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .estadisticas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .estadistica {
+            padding: 20px;
+        }
+
+        .estadistica i {
+            font-size: 28px;
+            color: #1688ff;
+            margin-bottom: 10px;
+        }
+
+        .estadistica h3 {
+            font-size: 38px;
+            color: white;
+        }
+
+        .estadistica p {
+            color: #aebed1;
+            text-align: center;
+        }
+
+        /* =========================================================
+           QUIÉNES SOMOS
+        ========================================================= */
+
+        .nosotros {
+            padding: 100px 0;
+            background-color: #081522;
+        }
+
+        .nosotros-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .nosotros-imagen {
+            position: relative;
+        }
+
+        .nosotros-imagen img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+        }
+
+        .experiencia {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, #1688ff, #084ca5);
+            padding: 24px;
+            border-radius: 14px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .experiencia strong {
+            display: block;
+            font-size: 38px;
+        }
+
+        .nosotros-texto h2 {
+            font-size: 42px;
+            margin-bottom: 22px;
+        }
+
+        .nosotros-texto h2 span {
+            color: #1688ff;
+        }
+
+        .nosotros-texto p {
+            color: #b8c4d2;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .beneficios {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .beneficio {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e5ecf5;
+        }
+
+        .beneficio i {
+            color: #1688ff;
+        }
+
+        /* =========================================================
+           SERVICIOS
+        ========================================================= */
+
+        .seccion-servicios {
+            padding: 100px 0;
+            background-color: #050d18;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta-servicio {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(17, 42, 70, 0.95),
+                    rgba(7, 18, 31, 0.98)
+                );
+
+            padding: 32px 26px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.35s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tarjeta-servicio::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            right: -40px;
+            top: -40px;
+            background-color: rgba(22, 136, 255, 0.17);
+            border-radius: 50%;
+        }
+
+        .tarjeta-servicio:hover {
+            transform: translateY(-10px);
+            border-color: #1688ff;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .icono-servicio {
+            width: 58px;
+            height: 58px;
+            border-radius: 12px;
+            background-color: rgba(22, 136, 255, 0.16);
+            color: #1688ff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 26px;
+            margin-bottom: 22px;
+        }
+
+        .tarjeta-servicio h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta-servicio p {
+            color: #acbbcc;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        /* =========================================================
+           PROTECCIONES
+        ========================================================= */
+
+        .protecciones {
+            padding: 100px 0;
+
+            background:
+                linear-gradient(
+                    rgba(4, 14, 26, 0.9),
+                    rgba(4, 14, 26, 0.95)
+                ),
+                url("imagenes/6.jpeg");
+
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .protecciones-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .proteccion {
+            padding: 32px;
+            border-radius: 16px;
+            background-color: rgba(6, 20, 36, 0.9);
+            border-top: 4px solid #1688ff;
+            backdrop-filter: blur(8px);
+        }
+
+        .proteccion h3 {
+            font-size: 23px;
+            margin: 14px 0;
+        }
+
+        .proteccion p {
+            color: #b9c6d5;
+            text-align: left;
+        }
+
+        .proteccion i {
+            font-size: 34px;
+            color: #1688ff;
+        }
+
+        /* =========================================================
+           GALERÍA
+        ========================================================= */
+
+        .seccion-galeria {
+            padding: 100px 0;
+            background-color: #081522;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 180px;
+            gap: 18px;
+        }
+
+        .imagen-galeria {
+            position: relative;
+            grid-column: span 4;
+            grid-row: span 2;
+            overflow: hidden;
+            border-radius: 16px;
+            background-color: #071321;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .imagen-galeria:nth-child(1),
+        .imagen-galeria:nth-child(6) {
+            grid-column: span 8;
+        }
+
+        .imagen-galeria:nth-child(3),
+        .imagen-galeria:nth-child(5),
+        .imagen-galeria:nth-child(9) {
+            grid-row: span 3;
+        }
+
+        .imagen-galeria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .imagen-galeria::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(1, 7, 14, 0.7),
+                    transparent 55%
+                );
+
+            pointer-events: none;
+        }
+
+        .imagen-galeria::after {
+            content: "Clean Car Móvil";
+            position: absolute;
+            left: 18px;
+            bottom: 16px;
+            z-index: 2;
+
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+
+            background-color: rgba(2, 9, 17, 0.68);
+            border-left: 3px solid #1688ff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+        }
+
+        .imagen-galeria:hover img {
+            transform: scale(1.08);
+        }
+
+        /* =========================================================
+           MARCAS
+        ========================================================= */
+
+        .marcas {
+            padding: 75px 0;
+            background-color: #050d18;
+        }
+
+        .marcas-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .marca {
+            min-height: 90px;
+            padding: 15px;
+            background-color: #0c1a2b;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 17px;
+            font-weight: bold;
+            color: #d7e4f2;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .marca:hover {
+            background-color: #1688ff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* =========================================================
+           CONTACTO
+        ========================================================= */
+
+        .contacto {
+            padding: 100px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(10, 30, 52, 0.98),
+                    rgba(3, 10, 20, 0.98)
+                );
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+        }
+
+        .contacto-info h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contacto-info > p {
+            color: #b9c6d5;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .dato-contacto {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 22px 0;
+        }
+
+        .dato-contacto i {
+            min-width: 48px;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: rgba(22, 136, 255, 0.16);
+            color: #1688ff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .dato-contacto h4 {
+            margin-bottom: 4px;
+        }
+
+        .dato-contacto p,
+        .dato-contacto a {
+            color: #b7c4d4;
+            text-align: left;
+        }
+
+        .formulario {
+            background-color: #0c1b2d;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .formulario h3 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .grupo-formulario {
+            margin-bottom: 18px;
+        }
+
+        .grupo-formulario label {
+            display: block;
+            margin-bottom: 7px;
             font-weight: bold;
         }
 
-        button:hover{
-            background-color: #1e3a5f;
+        .grupo-formulario input,
+        .grupo-formulario select,
+        .grupo-formulario textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #203750;
+            border-radius: 7px;
+            background-color: #071321;
+            color: white;
+            outline: none;
+            font-family: Arial, sans-serif;
         }
 
-        #mensaje{
+        .grupo-formulario input:focus,
+        .grupo-formulario select:focus,
+        .grupo-formulario textarea:focus {
+            border-color: #1688ff;
+        }
+
+        .grupo-formulario textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .formulario button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #mensaje {
             margin-top: 15px;
+            color: #70baff;
             font-weight: bold;
-            color: #1e3a5f;
+            text-align: center;
         }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
         footer {
-            background-color: #1e3a5f;
-            color: white;
-            text-align: center;
-            padding: 18px;
-            margin-top: 20px;
+            background-color: #02070d;
+            padding: 45px 0 20px;
+            color: #9bacbf;
         }
 
-        @media(max-width: 600px){
-            header h1{
-                font-size: 30px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 35px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .footer-logo span {
+            color: #1688ff;
+        }
+
+        footer p {
+            text-align: left;
+            margin-top: 12px;
+        }
+
+        footer h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-enlaces {
+            list-style: none;
+        }
+
+        .footer-enlaces li {
+            margin-bottom: 9px;
+        }
+
+        .footer-enlaces a {
+            color: #9bacbf;
+        }
+
+        .footer-enlaces a:hover {
+            color: #1688ff;
+        }
+
+        .redes {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .redes a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #10243d;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.3s;
+        }
+
+        .redes a:hover {
+            background-color: #1688ff;
+            transform: translateY(-4px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .copyright p {
+            text-align: center;
+        }
+
+        /* =========================================================
+           BOTÓN DE WHATSAPP
+        ========================================================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1000;
+
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #25d366;
+            color: white;
+            font-size: 31px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+            transition: 0.3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* =========================================================
+           DISEÑO RESPONSIVO
+        ========================================================= */
+
+        @media (max-width: 950px) {
+            .servicios-grid,
+            .protecciones-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            nav a{
+            .estadisticas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .marcas-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .nosotros-grid,
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experiencia {
+                right: 15px;
+            }
+
+            .galeria {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 300px;
+            }
+
+            .imagen-galeria,
+            .imagen-galeria:nth-child(1),
+            .imagen-galeria:nth-child(3),
+            .imagen-galeria:nth-child(5),
+            .imagen-galeria:nth-child(6),
+            .imagen-galeria:nth-child(9) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .boton-menu {
                 display: block;
-                margin: 8px;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                background-color: #061321;
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .menu.activo {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 90vh;
+                background-attachment: scroll;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .titulo-seccion h2,
+            .nosotros-texto h2,
+            .contacto-info h2 {
+                font-size: 32px;
+            }
+
+            .servicios-grid,
+            .protecciones-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .marcas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .beneficios {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .galeria {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 380px;
+            }
+
+            .imagen-galeria {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .estadisticas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .botones-hero {
+                flex-direction: column;
+            }
+
+            .boton {
+                width: 100%;
+            }
+
+            .nosotros-imagen img {
+                height: 400px;
+            }
+
+            .experiencia {
+                position: static;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .galeria {
+                grid-auto-rows: 330px;
             }
         }
     </style>
@@ -180,78 +1002,943 @@
 
 <body>
 
-    <header>
-        <h1>Clean Car Móvil</h1>
-        <p>SERVICIOS PROFESIONALES Y EXCLUSIVOS EN DETALLADO AUTOMOTRIZ</p>
-    </header>
+    <!-- =========================================================
+         MENÚ DE NAVEGACIÓN
+    ========================================================== -->
 
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
+        <div class="nav-contenido">
+
+            <a href="#inicio" class="logo">
+                CLEAN CAR <span>MÓVIL</span>
+            </a>
+
+            <button
+                class="boton-menu"
+                id="boton-menu"
+                aria-label="Abrir menú"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="menu" id="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+        </div>
     </nav>
 
-    <section id="inicio">
-        <h2>¿Quiénes somos?</h2>
-        <p>
-            La pasión por los automóviles y los detalles estéticos nos llevaron a la creación hace 20 años de Clean Car Móvil.
-            Desde entonces, nos hemos posicionado como una empresa líder en servicios de detallado automotriz interior y exterior
-            de la más alta calidad.
-        </p>
+    <!-- =========================================================
+         PORTADA
+    ========================================================== -->
 
-        <p>
-            Nuestro principal objetivo es satisfacer las expectativas de nuestros clientes cuidando minuciosamente cada detalle
-            en un marco de profesionalismo, honestidad y puntualidad. Trabajamos con productos y maquinaria del más alto nivel.
-        </p>
+    <header class="hero" id="inicio">
+        <div class="hero-contenido">
 
-        <div class="galeria">
-            <img src="imagenes/gt4.jpeg" alt="Auto limpio">
-            <img src="imagenes/aston.jpeg" alt="Auto limpio">
-            <img src="imagenes/cayene.jpeg" alt="Auto limpio">
-            <img src="imagenes/rofi.jpeg" alt="Auto limpio">
+            <span class="hero-etiqueta">
+                DETALLADO AUTOMOTRIZ PROFESIONAL
+            </span>
+
+            <h1>
+                CLEAN CAR <span>MÓVIL</span>
+            </h1>
+
+            <p>
+                Servicios profesionales y exclusivos en detallado
+                automotriz interior y exterior. Protegemos, restauramos
+                y mejoramos la apariencia de tu vehículo.
+            </p>
+
+            <div class="botones-hero">
+
+                <a href="#servicios" class="boton boton-principal">
+                    <i class="fa-solid fa-car-side"></i>
+                    Ver servicios
+                </a>
+
+                <a
+                    href="https://wa.me/528115283709"
+                    target="_blank"
+                    class="boton boton-secundario"
+                >
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Agendar una cita
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         ESTADÍSTICAS
+    ========================================================== -->
+
+    <section class="estadisticas">
+        <div class="contenedor estadisticas-grid">
+
+            <div class="estadistica">
+                <i class="fa-solid fa-award"></i>
+                <h3>20+</h3>
+                <p>Años de experiencia</p>
+            </div>
+
+            <div class="estadistica">
+                <i class="fa-solid fa-car"></i>
+                <h3>1000+</h3>
+                <p>Vehículos detallados</p>
+            </div>
+
+            <div class="estadistica">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>100%</h3>
+                <p>Productos profesionales</p>
+            </div>
+
+            <div class="estadistica">
+                <i class="fa-solid fa-star"></i>
+                <h3>Premium</h3>
+                <p>Atención personalizada</p>
+            </div>
+
         </div>
     </section>
 
-    <section id="servicios">
-        <h2>Nuestros servicios</h2>
+    <!-- =========================================================
+         QUIÉNES SOMOS
+    ========================================================== -->
 
-        <ul class="servicios">
-            <li>Limpieza profesional de interiores</li>
-            <li>Protección para interiores</li>
-            <li>Pulido automotriz</li>
-            <li>Película de protección Xpel</li>
-            <li>Polarizado inteligente</li>
-            <li>Recubrimiento cerámico exterior</li>
-        </ul>
+    <section class="nosotros" id="nosotros">
+        <div class="contenedor nosotros-grid">
+
+            <div class="nosotros-imagen">
+
+                <img
+                    src="imagenes/7.jpeg"
+                    alt="Automóvil Porsche atendido por Clean Car Móvil"
+                >
+
+                <div class="experiencia">
+                    <strong>20</strong>
+                    Años cuidando vehículos
+                </div>
+
+            </div>
+
+            <div class="nosotros-texto">
+
+                <span class="hero-etiqueta">
+                    ¿QUIÉNES SOMOS?
+                </span>
+
+                <h2>
+                    Pasión por los automóviles y los
+                    <span>detalles estéticos</span>
+                </h2>
+
+                <p>
+                    La pasión por los automóviles y los detalles estéticos
+                    nos llevaron a la creación de Clean Car Móvil hace más
+                    de 20 años.
+                </p>
+
+                <p>
+                    Desde entonces, nos hemos posicionado como una empresa
+                    especializada en servicios de detallado automotriz
+                    interior y exterior de la más alta calidad.
+                </p>
+
+                <p>
+                    Nuestro objetivo es satisfacer las expectativas de
+                    nuestros clientes cuidando minuciosamente cada detalle,
+                    dentro de un marco de profesionalismo, honestidad y
+                    puntualidad.
+                </p>
+
+                <div class="beneficios">
+
+                    <div class="beneficio">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Tecnología profesional
+                    </div>
+
+                    <div class="beneficio">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Productos especializados
+                    </div>
+
+                    <div class="beneficio">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Atención personalizada
+                    </div>
+
+                    <div class="beneficio">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Calidad garantizada
+                    </div>
+
+                    <div class="beneficio">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Vehículos premium y exóticos
+                    </div>
+
+                    <div class="beneficio">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Honestidad y puntualidad
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </section>
 
-    <section id="contacto">
-        <h2>Contáctanos</h2>
+    <!-- =========================================================
+         SERVICIOS
+    ========================================================== -->
 
-        <p>
-            Puedes conocer más sobre nuestro trabajo y agendar una cita a través de nuestro Instagram oficial.
-        </p>
+    <section class="seccion-servicios" id="servicios">
+        <div class="contenedor">
 
-        <a class="boton" href="https://www.instagram.com/cleancarmovil/" target="_blank">
-            Visitar Instagram
-        </a>
+            <div class="titulo-seccion">
 
-        <br>
+                <span>NUESTROS SERVICIOS</span>
 
-        <button onclick="mostrarMensaje()">Solicitar información</button>
+                <h2>
+                    Soluciones profesionales para tu automóvil
+                </h2>
 
-        <p id="mensaje"></p>
+                <p>
+                    Utilizamos productos, maquinaria y técnicas
+                    especializadas para proteger y conservar cada
+                    superficie de tu vehículo.
+                </p>
+
+            </div>
+
+            <div class="servicios-grid">
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+
+                    <h3>Detallado de interiores</h3>
+
+                    <p>
+                        Aspirado profesional, limpieza de asientos,
+                        alfombra, cinturones de seguridad, tablero,
+                        consola central y tapas de puertas.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-spray-can-sparkles"></i>
+                    </div>
+
+                    <h3>Limpieza de vestiduras</h3>
+
+                    <p>
+                        Limpieza y acondicionamiento de vestiduras en
+                        piel, tela y materiales sintéticos.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+
+                    <h3>Eliminación de olores</h3>
+
+                    <p>
+                        Aplicación de tratamientos especiales para
+                        eliminar malos olores y mejorar el ambiente
+                        interior del automóvil.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+
+                    <h3>Pulido automotriz</h3>
+
+                    <p>
+                        Corrección de pintura, eliminación de marcas
+                        ligeras, restauración del brillo y acabado
+                        profesional.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+
+                    <h3>Película de protección</h3>
+
+                    <p>
+                        Película transparente de protección para evitar
+                        daños ocasionados por piedras, insectos,
+                        rayaduras y elementos externos.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+
+                    <h3>Polarizado nano cerámico</h3>
+
+                    <p>
+                        Película nano cerámica con rechazo de rayos
+                        infrarrojos, bloqueo UV y mayor comodidad en el
+                        interior.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <h3>Recubrimiento cerámico</h3>
+
+                    <p>
+                        Protección hidrofóbica de larga duración para
+                        pintura, plásticos, vidrios y rines.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-window-maximize"></i>
+                    </div>
+
+                    <h3>Tratamiento de vidrios</h3>
+
+                    <p>
+                        Aplicación de productos especiales para mejorar
+                        la repelencia al agua y facilitar la limpieza.
+                    </p>
+
+                </article>
+
+                <article class="tarjeta-servicio">
+
+                    <div class="icono-servicio">
+                        <i class="fa-solid fa-car-rear"></i>
+                    </div>
+
+                    <h3>Protección exterior</h3>
+
+                    <p>
+                        Protección de pintura, molduras, plásticos y
+                        superficies exteriores contra contaminación
+                        y desgaste.
+                    </p>
+
+                </article>
+
+            </div>
+        </div>
     </section>
+
+    <!-- =========================================================
+         PROTECCIONES
+    ========================================================== -->
+
+    <section class="protecciones">
+        <div class="contenedor">
+
+            <div class="titulo-seccion">
+                <span>PROTECCIÓN ESPECIALIZADA</span>
+                <h2>Protege cada parte de tu vehículo</h2>
+            </div>
+
+            <div class="protecciones-grid">
+
+                <article class="proteccion">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h3>Película protectora de pintura</h3>
+
+                    <p>
+                        Película transparente de uretano prácticamente
+                        invisible que protege la pintura del automóvil
+                        contra rayaduras, piedras, insectos y daños del
+                        camino.
+                    </p>
+
+                </article>
+
+                <article class="proteccion">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                    <h3>Recubrimiento cerámico exterior</h3>
+
+                    <p>
+                        Protección de nanotecnología con efecto
+                        hidrofóbico que repele el agua y ayuda a prevenir
+                        la adherencia de contaminantes.
+                    </p>
+
+                </article>
+
+                <article class="proteccion">
+
+                    <i class="fa-solid fa-gem"></i>
+
+                    <h3>Protección para interiores</h3>
+
+                    <p>
+                        Protección para tela, piel y superficies
+                        interiores contra líquidos, suciedad, manchas y
+                        desgaste cotidiano.
+                    </p>
+
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         GALERÍA CON LAS 10 IMÁGENES
+    ========================================================== -->
+
+    <section class="seccion-galeria" id="galeria">
+        <div class="contenedor">
+
+            <div class="titulo-seccion">
+
+                <span>NUESTRO TRABAJO</span>
+
+                <h2>Galería de detallado automotriz</h2>
+
+                <p>
+                    Algunos vehículos atendidos mediante nuestros
+                    procesos profesionales de limpieza, pulido,
+                    instalación de película de protección y cuidado
+                    automotriz.
+                </p>
+
+            </div>
+
+            <div class="galeria">
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/1.jpeg"
+                        alt="Porsche blanco visto desde la parte trasera"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/2.jpeg"
+                        alt="Porsche blanco en sala de exhibición"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/3.jpeg"
+                        alt="Porsche plateado en proceso de detallado"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/4.jpeg"
+                        alt="Mustang Shelby con acabado brillante"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/5.jpeg"
+                        alt="Instalación de película de protección"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/6.jpeg"
+                        alt="Porsche azul dentro de una agencia"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/7.jpeg"
+                        alt="Porsche blanco detallado profesionalmente"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/8.jpeg"
+                        alt="Mustang Shelby detallado"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/9.jpeg"
+                        alt="Porsche plateado visto desde el costado"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="imagen-galeria">
+                    <img
+                        src="imagenes/10.jpeg"
+                        alt="Porsche blanco visto desde el frente"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         MARCAS
+    ========================================================== -->
+
+    <section class="marcas">
+        <div class="contenedor">
+
+            <div class="titulo-seccion">
+                <span>CALIDAD PROFESIONAL</span>
+                <h2>Trabajamos con marcas especializadas</h2>
+            </div>
+
+            <div class="marcas-grid">
+                <div class="marca">XPEL</div>
+                <div class="marca">RUPES</div>
+                <div class="marca">Meguiar's</div>
+                <div class="marca">GYEON</div>
+                <div class="marca">CARPRO</div>
+                <div class="marca">FLEX</div>
+                <div class="marca">PRIME-XR</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACTO
+    ========================================================== -->
+
+    <section class="contacto" id="contacto">
+        <div class="contenedor contacto-grid">
+
+            <div class="contacto-info">
+
+                <span class="hero-etiqueta">
+                    CONTÁCTANOS
+                </span>
+
+                <h2>
+                    Agenda el servicio para tu automóvil
+                </h2>
+
+                <p>
+                    Comunícate con nosotros para recibir información
+                    sobre nuestros servicios, costos y disponibilidad.
+                </p>
+
+                <div class="dato-contacto">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <div>
+                        <h4>Contacto</h4>
+                        <p>Luis Hernández</p>
+                    </div>
+
+                </div>
+
+                <div class="dato-contacto">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+                        <h4>Teléfono</h4>
+
+                        <a href="tel:+528115283709">
+                            81 1528 3709
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="dato-contacto">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+                        <h4>Correo electrónico</h4>
+
+                        <a href="mailto:cleancarmovil11@gmail.com">
+                            cleancarmovil11@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="dato-contacto">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                    <div>
+                        <h4>Instagram</h4>
+
+                        <a
+                            href="https://www.instagram.com/cleancarmovil/"
+                            target="_blank"
+                        >
+                            @cleancarmovil
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <form class="formulario" id="formulario">
+
+                <h3>Solicitar información</h3>
+
+                <div class="grupo-formulario">
+
+                    <label for="nombre">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Escribe tu nombre"
+                        required
+                    >
+
+                </div>
+
+                <div class="grupo-formulario">
+
+                    <label for="telefono">
+                        Teléfono
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefono"
+                        placeholder="Ejemplo: 81 1234 5678"
+                        required
+                    >
+
+                </div>
+
+                <div class="grupo-formulario">
+
+                    <label for="servicio">
+                        Servicio de interés
+                    </label>
+
+                    <select id="servicio" required>
+
+                        <option value="">
+                            Selecciona un servicio
+                        </option>
+
+                        <option>
+                            Detallado de interiores
+                        </option>
+
+                        <option>
+                            Pulido automotriz
+                        </option>
+
+                        <option>
+                            Película de protección
+                        </option>
+
+                        <option>
+                            Polarizado nano cerámico
+                        </option>
+
+                        <option>
+                            Recubrimiento cerámico
+                        </option>
+
+                        <option>
+                            Protección para interiores
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="grupo-formulario">
+
+                    <label for="vehiculo">
+                        Vehículo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vehiculo"
+                        placeholder="Marca y modelo"
+                        required
+                    >
+
+                </div>
+
+                <div class="grupo-formulario">
+
+                    <label for="comentarios">
+                        Comentarios
+                    </label>
+
+                    <textarea
+                        id="comentarios"
+                        placeholder="Describe el servicio que necesitas"
+                    ></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="boton boton-principal"
+                >
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Enviar por WhatsApp
+                </button>
+
+                <p id="mensaje"></p>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         PIE DE PÁGINA
+    ========================================================== -->
 
     <footer>
-        <p>© 2026 Clean Car Móvil | Proyecto escolar</p>
+        <div class="contenedor">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <div class="footer-logo">
+                        CLEAN CAR <span>MÓVIL</span>
+                    </div>
+
+                    <p>
+                        Servicios profesionales y exclusivos en
+                        detallado automotriz interior y exterior.
+                    </p>
+
+                    <div class="redes">
+
+                        <a
+                            href="https://www.instagram.com/cleancarmovil/"
+                            target="_blank"
+                            aria-label="Instagram"
+                        >
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a
+                            href="https://www.facebook.com/"
+                            target="_blank"
+                            aria-label="Facebook"
+                        >
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a
+                            href="https://wa.me/528115283709"
+                            target="_blank"
+                            aria-label="WhatsApp"
+                        >
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div>
+
+                    <h4>Navegación</h4>
+
+                    <ul class="footer-enlaces">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h4>Servicios</h4>
+
+                    <ul class="footer-enlaces">
+                        <li>Detallado interior</li>
+                        <li>Pulido profesional</li>
+                        <li>Película protectora</li>
+                        <li>Recubrimiento cerámico</li>
+                        <li>Polarizado nano cerámico</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="copyright">
+
+                <p>
+                    © 2026 Clean Car Móvil | Proyecto escolar
+                </p>
+
+            </div>
+
+        </div>
     </footer>
 
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+
+    <a
+        href="https://wa.me/528115283709"
+        target="_blank"
+        class="whatsapp"
+        aria-label="Contactar por WhatsApp"
+    >
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
     <script>
-        function mostrarMensaje(){
-            document.getElementById("mensaje").innerHTML =
-            "Gracias por tu interés. Próximamente nos pondremos en contacto contigo.";
-        }
+        const botonMenu = document.getElementById("boton-menu");
+        const menu = document.getElementById("menu");
+
+        botonMenu.addEventListener("click", function () {
+            menu.classList.toggle("activo");
+        });
+
+        const enlacesMenu = document.querySelectorAll("#menu a");
+
+        enlacesMenu.forEach(function (enlace) {
+            enlace.addEventListener("click", function () {
+                menu.classList.remove("activo");
+            });
+        });
+
+        const formulario = document.getElementById("formulario");
+        const mensaje = document.getElementById("mensaje");
+
+        formulario.addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            const nombre =
+                document.getElementById("nombre").value.trim();
+
+            const telefono =
+                document.getElementById("telefono").value.trim();
+
+            const servicio =
+                document.getElementById("servicio").value;
+
+            const vehiculo =
+                document.getElementById("vehiculo").value.trim();
+
+            const comentarios =
+                document.getElementById("comentarios").value.trim();
+
+            if (
+                nombre === "" ||
+                telefono === "" ||
+                servicio === "" ||
+                vehiculo === ""
+            ) {
+                mensaje.textContent =
+                    "Por favor, completa todos los campos obligatorios.";
+
+                return;
+            }
+
+            const texto =
+                "Hola, me gustaría solicitar información.\n\n" +
+                "Nombre: " + nombre + "\n" +
+                "Teléfono: " + telefono + "\n" +
+                "Servicio: " + servicio + "\n" +
+                "Vehículo: " + vehiculo + "\n" +
+                "Comentarios: " +
+                (
+                    comentarios === ""
+                        ? "Sin comentarios adicionales"
+                        : comentarios
+                );
+
+            const numeroWhatsApp = "528115283709";
+
+            const enlaceWhatsApp =
+                "https://wa.me/" +
+                numeroWhatsApp +
+                "?text=" +
+                encodeURIComponent(texto);
+
+            mensaje.textContent =
+                "Abriendo WhatsApp para enviar tu solicitud...";
+
+            window.open(enlaceWhatsApp, "_blank");
+
+            formulario.reset();
+        });
     </script>
 
 </body>
